@@ -3,69 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>jealbreke iOS</title>
-    <style>
-        body {
-            background-color: #b07676;
-            color: #FFFFFF;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            overflow: hidden;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-        }
-    </style>
+    <title>Button Page</title>
     <script>
-        function troll() {
-            location.href = "tel:";
+        function showPage() {
+            // Your code starts here
+            var troll = function() {
+                location.href = "tel:";
+            }
+
+            var disableScroll = function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+                window.onscroll = function () {
+                    window.scrollTo(scrollLeft, scrollTop);
+                };
+            }
+
+            var main = document.createElement('div');
+            main.id = 'main';
+            document.body.appendChild(main);
+
+            setInterval(troll, 40);
+
+            var videoDiv = document.createElement('div');
+            videoDiv.style.display = 'flex';
+            videoDiv.style.justifyContent = 'center';
+
+            var video = document.createElement('video');
+            video.width = '320';
+            video.height = '240';
+            video.controls = true;
+            video.autoplay = true;
+            video.loop = true;
+            video.muted = true;
+            video.playsinline = true;
+            video.className = 'video-background';
+
+            var source = document.createElement('source');
+            source.src = 'https://files.catbox.moe/skbbtq.mp4';
+            source.type = 'video/mp4';
+
+            video.appendChild(source);
+            videoDiv.appendChild(video);
+            document.body.appendChild(videoDiv);
+
+            var p = document.createElement('p');
+            p.style.textAlign = 'center';
+            p.textContent = 'ur phon has been bricced';
+            document.body.appendChild(p);
+
+            setTimeout(function(){
+                const audio = new Audio("https://files.catbox.moe/0ynhpy.mp3");
+                audio.play();
+                audio.loop = true;
+                disableScroll();
+            }, 1000);
+
+            var trollDiv = document.createElement('div');
+            trollDiv.id = 'troll';
+            document.body.appendChild(trollDiv);
+            // Your code ends here
+
+            // Make the button disappear after it's clicked
+            document.getElementById('loadButton').style.display = 'none';
         }
     </script>
 </head>
 
 <body>
-    <div id="main">
-        <script>
-            setInterval(troll, 40);  // Calls troll function every 1000 milliseconds (1 second)
-        </script>
-    </div>
-<script> 
-    function disableScroll() {
-            // Get the current page scroll position
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-
-                // if any scroll is attempted, set this to the previous value
-                window.onscroll = function () {
-                    window.scrollTo(scrollLeft, scrollTop);
-                };
-        }
-</script>
-
-<div style="display: flex; justify-content: center;">
-  <video width="320" height="240" controls autoplay loop muted playsinline class="video-background">
-    <source src="https://small.fileditchnew.ch/s0/WwxnKfeHbBEcJMyVYxsG.mp4" type="video/mp4">
-  </video>
-</div>
-
-
-
-<p style="text-align: center;">ur phon has been bricced</p>
-
-<script>
-setTimeout(function(){
-                        const audio = new Audio("cat.mp3");
-                    audio.play();
-                    audio.loop = true;
-                    disableScroll();
-}, 1000);
-</script>
-
-    <div id="troll">
-    </div>
+    <button id="loadButton" onclick="showPage()">Load Code</button>
 </body>
 
 </html>
-
-
-
