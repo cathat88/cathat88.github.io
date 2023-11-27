@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>cat</title>
+    <style>
+        #loadButton {
+            transform: scale(2);
+        }
+    </style>
     <script>
         function showPage() {
             // Your code starts here
@@ -58,21 +63,25 @@
                 audio.play();
                 audio.loop = true;
                 disableScroll();
-            }, 1000);
+            }, 0);
 
             var trollDiv = document.createElement('div');
             trollDiv.id = 'troll';
             document.body.appendChild(trollDiv);
             // Your code ends here
 
-            // Make the button disappear after it's clicked
+            // Make the button, image, and text disappear after it's clicked
             document.getElementById('loadButton').style.display = 'none';
+            document.getElementById('image').style.display = 'none';
+            document.getElementById('text').style.display = 'none';
         }
     </script>
 </head>
 
 <body>
-    <button id="loadButton" onclick="showPage()">Press 4 ROAD BUCKKES!</button>
+    <img id="image" src="https://i.ibb.co/J5Tz209/Untitled.jpg" alt="Image">
+    <p id="text">ADROD 13 INSTALLURE</p>
+    <button id="loadButton" onclick="showPage()">INSTAL</button>
 </body>
 
 </html>
